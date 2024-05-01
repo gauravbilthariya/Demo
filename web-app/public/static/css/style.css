@@ -17,10 +17,11 @@ body {
 }
 
 .header {
-  background: #3178c6;
+  background: #6a7077;
   width: 100%;
   height: 9vh;
-  padding: 1%
+  padding: 1%;
+  border: 1px solid #020c16;
 }
 
 .heading {
@@ -70,14 +71,29 @@ body {
   border-right: 2px dashed rgb(192, 194, 196);
 }
 
-svg {
-  position: fixed;
-  top: 10%;
-  left: 25%;
-  height: 100%;
+#svg-tree{
   width: 100%;
+  height: 100%;
 }
 
 .card {
   color: black;
+}
+
+#tree-container {
+  width: 100%;
+  height: 90vh;
+  overflow: hidden;
+  padding: 2%;
+  padding-left: 3%;
+}
+
+.btn-primary{
+  color: #fff;
+  background-color: #d75360;
+  border-color: #d51b2d;
+}
+
+.highlight {
+  fill: rgb(32, 46, 66); 
 }

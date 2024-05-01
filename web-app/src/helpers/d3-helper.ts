@@ -25,12 +25,21 @@ export class D3Helper {
       children: D3Helper.getChildren(data[0].name, data)
     };
 
-    const svg = d3.select("#tree-container")
-      .append("svg")
-      .append("g")
-      .attr("transform", "translate(40,400)");
+    var margin = { top: 20, right: 90, bottom: 30, left: 90 };
+    var containerWidth = document.getElementById('tree-container')?.offsetWidth as number;
+    var containerHeight = document.getElementById('tree-container')?.offsetHeight as number;
+    var width = containerWidth - margin.left - margin.right;
+    var height = containerHeight - margin.top - margin.bottom;
 
-    const treeLayout = d3.tree<TreeNode>().nodeSize([150, 200]);
+    var treeLayout = d3.tree<TreeNode>()
+      .size([height, width]);
+
+    var svg = d3.select("#svg-tree")
+      .attr("viewBox", `0 0 ${containerWidth + 50} ${containerHeight}`)
+      .attr("preserveAspectRatio", "xMinYMin meet");
+
+    svg.append("g")
+      .attr("transform", "translate(" + (margin.left + 100) + "," + margin.top + ")");
 
     const root = d3.hierarchy<TreeNode>(treeData);
     const treeNodes = treeLayout(root);
@@ -53,7 +62,13 @@ export class D3Helper {
       .enter()
       .append("g")
       .attr("class", "node")
-      .attr("transform", (d: any) => `translate(${d.y - 40},${d.x - 40})`);
+      .attr("transform", (d: any, i = 0) => {
+        if (i == 0) {
+          i++;
+          return `translate(${d.y},${d.x - 40})`
+        }
+        return `translate(${d.y - 40},${d.x - 40})`
+      }).on('click', click)
 
     nodes.append("rect")
       .attr("width", "5vw")
@@ -68,10 +83,14 @@ export class D3Helper {
       .attr("class", "node-text")
       .text((d: any) => d.data.name);
 
-      //bind click to connector
-    nodes.on("click", function (d) {
-      connector.click(d.target["__data__"].data);
-    });
+    function click(d: any) {
+      if (d.target.nodeName === "rect") {
+        const nodeData: any[] = d3.select(d.target).data();
+        d3.selectAll(".node-box").classed("highlight", false);
+        d3.select(d.target).classed("highlight", true);
+        connector.click(nodeData[0].data as any);
+      }
+    }
   }
 }
 
