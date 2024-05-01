@@ -1,5 +1,5 @@
-import { TreeNodeData } from "./tree-node-data.model";
+import { TreeNode } from "./tree-node.model";
 
 export interface GraphData {
-    data: TreeNodeData[];
+    data: TreeNode[];
 };

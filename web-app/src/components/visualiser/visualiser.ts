@@ -1,11 +1,11 @@
 import { D3Helper } from "../../helpers/d3-helper";
-import { GraphData, TreeNodeData } from "../../models";
+import { GraphData, TreeNode } from "../../models";
 import { detailsHandler } from "../details/details";
 import { config } from '../../config/configuration'
 
 export class Visualiser {
 
-  data: TreeNodeData[] = [];
+  data: TreeNode[] = [];
 
   async load() {
     const response = await fetch(config.API_URL);

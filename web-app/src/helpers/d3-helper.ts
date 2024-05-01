@@ -1,10 +1,10 @@
 import * as d3 from "d3";
-import { TreeNode, TreeNodeData } from "../models";
-import { D3Connecotr } from "../models/d3-connector.model";
+import { TreeNode } from "../models";
+import { D3Connector } from "../models/d3-connector.model";
 
 export class D3Helper {
 
-  private static getChildren(parentId: string, data: TreeNodeData[]): TreeNode[] {
+  private static getChildren(parentId: string, data: TreeNode[]): TreeNode[] {
     const nodes: TreeNode[] = [];
     data.filter(item => item.parent === parentId)
       .forEach(item => {
@@ -17,7 +17,7 @@ export class D3Helper {
     return nodes;
   }
 
-  static async renderTreeView(data: TreeNodeData[], connector: D3Connecotr) {
+  static async renderTreeView(data: TreeNode[], connector: D3Connector) {
 
     const treeData: TreeNode = {
       "name": data[0].name,

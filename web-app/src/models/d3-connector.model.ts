@@ -1,5 +1,5 @@
-import { TreeNode } from "./tree-node";
+import { TreeNode } from "./tree-node.model";
 
-export interface D3Connecotr {
+export interface D3Connector {
     click: (data: TreeNode) => any
 };
