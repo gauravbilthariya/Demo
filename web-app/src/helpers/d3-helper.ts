@@ -27,10 +27,8 @@ export class D3Helper {
 
     const svg = d3.select("#tree-container")
       .append("svg")
-      .attr("width", "60vw")
-      .attr("height", "80vh")
       .append("g")
-      .attr("transform", "translate(50,450)");
+      .attr("transform", "translate(40,400)");
 
     const treeLayout = d3.tree<TreeNode>().nodeSize([150, 200]);
 
