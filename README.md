@@ -9,16 +9,17 @@ The Data Visualizer repository includes both front-end and back-end code. The fr
 ### Configuring the local environment:
 This project uses node and npm.
 
-  * #### Backend
-    In terminal navigate to backend folder and excute below commands
+  * #### Backend Server
+    In terminal navigate to \backend> and excute below commands
   ```bash
     npm install
     npm start
   ```
-  In browser visit http://localhost and you should see message 'Server is up and running!'
+  In browser visit http://localhost and you should see message "Server is up and running!"
 
-   * #### Frontend
-    In terminal navigate to web-app folder and execute below commands
+   * #### Frontend Web-app
+     In terminal navigate to \web-app> and execute below command
+   
   ```bash
     npm install
     npm start
