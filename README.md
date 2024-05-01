@@ -27,5 +27,5 @@ This project uses node and npm.
   The app will open in the browser on http://localhost:8080/
     
 
-![Visualiser](/web-app/public/static/images/UI.PNG?raw=true)
+![Visualiser](/web-app/public/static/images/UI1.PNG?raw=true)
 
