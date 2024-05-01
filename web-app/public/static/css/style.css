@@ -65,48 +65,19 @@ body {
 
 #details-container {
   width: 20vw;
-  height: 88vh;
+  height: 100vh;
   padding: 2.5%;
   border-right: 2px dashed rgb(192, 194, 196);
 }
 
-.modal {
-  width: 15vw;
-  height: 20vh;
-  box-shadow: 1px 0px 14px 5px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 1px 0px 14px 5px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 1px 0px 14px 5px rgba(0, 0, 0, 0.75);
-  padding: 5px;
-  color: cadetblue;
-}
-
-.close {
-  color: gray;
-  font-weight: bold;
-  float: right;
-  cursor: pointer;
-  font-size: x-large;
-  padding: 1%;
-  width: 9%;
-  margin-top: -2%;
-}
-
-.name {
-  padding-top: 10%;
-  padding-left: 2%;
-  font-size: larger;
-  font-weight: 500;
-}
-
-.desc {
-  padding-left: 3%;
-  padding-top: 5%;
-}
-
 svg {
   position: fixed;
-  top: 1%;
+  top: 10%;
   left: 25%;
   height: 100%;
   width: 100%;
+}
+
+.card {
+  color: black;
 }

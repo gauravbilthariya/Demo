@@ -20,9 +20,9 @@ export class D3Helper {
   static async renderTreeView(data: TreeNode[], connector: D3Connector) {
 
     const treeData: TreeNode = {
-      "name": data[0].name,
-      "description": data[0].description,
-      "children": D3Helper.getChildren(data[0].name, data)
+      name: data[0].name,
+      description: data[0].description,
+      children: D3Helper.getChildren(data[0].name, data)
     };
 
     const svg = d3.select("#tree-container")
@@ -68,8 +68,10 @@ export class D3Helper {
       .attr("class", "node-text")
       .text((d: any) => d.data.name);
 
-    //bind events here using connector
-    d3.selectAll("g.node").on("click", (event) => connector.click(event.target["__data__"].data));
+      //bind click to connector
+    nodes.on("click", function (d) {
+      connector.click(d.target["__data__"].data);
+    });
   }
 }
 

@@ -1,23 +1,22 @@
 import { D3Helper } from "../../helpers/d3-helper";
 import { GraphData, TreeNode } from "../../models";
-import { detailsHandler } from "../details/details";
+import { DetailsComponent } from "../../views/details/details.component";
 import { config } from '../../config/configuration'
 
 export class Visualiser {
+  private data: TreeNode[] = [];
 
-  data: TreeNode[] = [];
-
-  async load() {
+  private async load(): Promise<void> {
     const response = await fetch(config.API_URL);
     const responseData: GraphData = await response.json();
     this.data = responseData.data;
   }
 
-  async render() {
-    await D3Helper.renderTreeView(this.data, { click: detailsHandler.connector })
+  private async render(): Promise<void> {
+    await D3Helper.renderTreeView(this.data, { click: DetailsComponent.connector })
   }
 
-  async init() {
+  async init(): Promise<void> {
     await this.load();
     await this.render();
   }
